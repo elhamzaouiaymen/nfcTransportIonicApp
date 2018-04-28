@@ -1,8 +1,7 @@
 
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth'
-import {user} from '../../models/user'
-
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 /*
   Generated class for the AuthProvider provider.
@@ -13,22 +12,19 @@ import {user} from '../../models/user'
 @Injectable()
 export class AuthProvider {
 
-  constructor(private fireauth: AngularFireAuth) {
-    
-  }
+	private user: firebase.User;
 
+	constructor(public afAuth: AngularFireAuth) {
+		afAuth.authState.subscribe(user => {
+			this.user = user;
+		});
+	}
 
-  //LOGIN FUNCTION
-  login(user:user){
-  	var promise = new Promise((resolve, reject)=>{
-  		this.fireauth.auth.signInWithEmailAndPassword(user.email, user.password).then(()=>{
-  			resolve(true);
-  		}).catch((err)=>{
-  			reject(err);
-  		})
-  	})  
-  	return promise;
-  }
+	signInWithEmail(credentials) {
+		console.log('Sign in with email');
+		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email,
+			 credentials.password);
+	}
 
 
 

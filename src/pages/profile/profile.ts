@@ -30,7 +30,7 @@ export class ProfilePage {
     })
   }
  
-	updateproceed() {
+	/*updateproceed() {
 	    let loader = this.loadingCtrl.create({
 	      content: 'Please wait'
 	    })
@@ -48,6 +48,6 @@ export class ProfilePage {
  
   proceed() {
     this.navCtrl.setRoot('TabsPage');
-  }
+  }*/
 
 }
