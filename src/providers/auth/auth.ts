@@ -20,7 +20,7 @@ export class AuthProvider {
 		});
 	}
 
-	signInWithEmail(credentials) {
+	public signInWithEmail(credentials) {
 		console.log('Sign in with email');
 		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email,
 			 credentials.password);

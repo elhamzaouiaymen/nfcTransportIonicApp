@@ -43,10 +43,11 @@ import { AngularFireAuth} from 'angularfire2/auth'
     LoginPage,
   ],
   imports: [
-    BrowserModule,
     NgxErrorsModule,
+    BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FirebaseConfig),
+    AngularFireModule.initializeApp(FirebaseConfig),   
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [

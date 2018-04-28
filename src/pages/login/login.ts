@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth'
 import { TabsPage } from '../../pages/tabs/tabs'
-
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 
 @IonicPage()
 @Component({
