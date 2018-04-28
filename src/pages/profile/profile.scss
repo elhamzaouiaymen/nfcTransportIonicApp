@@ -1,0 +1,32 @@
+page-profile {
+
+#profile-img {
+	width: 100px !important;
+    height: 100px !important;
+	margin-top: 10%;
+	background: none !important;
+	background-color :none !important;
+	
+}
+
+.bg-image {
+    background-color: primary;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+
+.round-image img{
+    background-position: center center;
+    background-size: contain;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+
+
+}
+
+
+}

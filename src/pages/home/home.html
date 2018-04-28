@@ -5,13 +5,44 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-card>
+  <ion-card-header>
+    Dashboard
+  </ion-card-header>
+
+  <ion-list>
+    <button #abonnement (click)="goToAbonnement()" ion-item>
+      <ion-icon  color="limeColor" name="cart" item-start></ion-icon>
+      Abonnement
+    </button>
+
+    <button ion-item>
+      <ion-icon  color="greenColor" name="paper" item-start></ion-icon>
+      Ticket
+    </button>
+
+
+     <button ion-item>
+      <ion-icon color="primary" name="happy" item-start></ion-icon>
+      Offres
+    </button>
+
+    <button ion-item>
+      <ion-icon color="deepOrange" name="navigate" item-start></ion-icon>
+      Trajets
+    </button>
+
+    <button ion-item>
+      <ion-icon color="yellowColor" name="star-outline" item-start></ion-icon>
+      Services
+    </button>
+
+    <button ion-item>
+      <ion-icon color="danger" name="time" item-start></ion-icon>
+      Historique
+    </button>
+
+
+  </ion-list>
+</ion-card>
 </ion-content>
