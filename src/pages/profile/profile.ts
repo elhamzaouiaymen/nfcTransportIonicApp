@@ -16,38 +16,8 @@ export class ProfilePage {
 	}
   
 
-    chooseimage() {
-    let loader = this.loadingCtrl.create({
-      content: 'Please wait'
-    })
-    loader.present();
-    this.imgservice.uploadimage().then((uploadedurl: any) => {
-      loader.dismiss();
-      this.zone.run(() => {
-        this.imgurl = uploadedurl;
-        this.moveon = false;
-      })
-    })
-  }
- 
-	/*updateproceed() {
-	    let loader = this.loadingCtrl.create({
-	      content: 'Please wait'
-	    })
-	    loader.present();
-	    this.userservice.updateimage(this.imgurl).then((res: any) => {
-	      loader.dismiss();
-	      if (res.success) {
-	        this.navCtrl.setRoot('TabsPage');
-	      }
-	      else {
-	        alert(res);
-	      }
-	    })
-	  }  
- 
-  proceed() {
-    this.navCtrl.setRoot('TabsPage');
-  }*/
+
+
+
 
 }

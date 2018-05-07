@@ -1,48 +1,50 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content  no-padding class="grid-full">
+  <div ion-fixed style="height: 100%;">
+ <ion-row>
 
-<ion-content padding>
-  <ion-card>
-  <ion-card-header>
-    Dashboard
-  </ion-card-header>
+      <ion-col class="cell-1" (click)="goToAbonnement()">
+        <span>ABONNEMENT</span>
+        <div style="height: 100%; width: 100%; margin-top: 18px">
+        <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/abonnement.svg"></ion-img>
+        </div>
+      </ion-col>
 
-  <ion-list>
-    <button #abonnement (click)="goToAbonnement()" ion-item>
-      <ion-icon  color="limeColor" name="cart" item-start></ion-icon>
-      Abonnement
-    </button>
+      <ion-col class="cell-2">
+        <span>OFFRES</span>
+        <div style="height: 100%; width: 100%; margin-top: 18px">
+        <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/discount.svg"></ion-img>
+        </div>
+      </ion-col>
 
-    <button ion-item>
-      <ion-icon  color="greenColor" name="paper" item-start></ion-icon>
-      Ticket
-    </button>
+      <ion-col class="cell-3">
+        <span>SERVICES</span>
+        <div style="height: 100%; width: 100%; margin-top: 18px">
+        <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/service.svg"></ion-img>
+        </div>
+      </ion-col>
 
+      <ion-col class="cell-4">
+        TICKET
+        <div style="height: 100%; width: 100%; margin-top: 18px">
+        <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/tickets.svg"></ion-img>
+        </div>
+      </ion-col>
 
-     <button ion-item>
-      <ion-icon color="primary" name="happy" item-start></ion-icon>
-      Offres
-    </button>
+      <ion-col class="cell-5">
+        <span>TRAJETS</span>
+        <div style="height: 100%; width: 100%; margin-top: 18px">
+        <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/trajet.svg"></ion-img>
+        </div>
+      </ion-col>
 
-    <button ion-item>
-      <ion-icon color="deepOrange" name="navigate" item-start></ion-icon>
-      Trajets
-    </button>
+      <ion-col class="cell-6">
+        <span>NFC</span>
+        <div style="height: 100%; width: 100%; margin-top: 18px">
+        <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/nfc.svg"></ion-img>
+        </div>
+      </ion-col>
 
-    <button ion-item>
-      <ion-icon color="yellowColor" name="star-outline" item-start></ion-icon>
-      Services
-    </button>
+  </ion-row>
+  </div>
 
-    <button ion-item>
-      <ion-icon color="danger" name="time" item-start></ion-icon>
-      Historique
-    </button>
-
-
-  </ion-list>
-</ion-card>
 </ion-content>

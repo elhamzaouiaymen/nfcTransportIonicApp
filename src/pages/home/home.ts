@@ -9,7 +9,7 @@ import {AbonnementPage} from './../abonnement/abonnement'
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
+  	//nothing here.
   }
 
   goToAbonnement() {

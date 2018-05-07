@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { CreateAbonnementPage} from '../create-abonnement/create-abonnement'
+import { DerniersAbonnementPage} from '../derniers-abonnement/derniers-abonnement'
 /**
  * Generated class for the AbonnementPage page.
  *
@@ -45,6 +47,14 @@ export class AbonnementPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AbonnementPage');
+  }
+
+  private goToAbonnement(){
+    this.navCtrl.push(CreateAbonnementPage);
+  }
+
+  private goToHistorique(){
+    this.navCtrl.push(DerniersAbonnementPage);
   }
 
 }

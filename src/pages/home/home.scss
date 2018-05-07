@@ -1,3 +1,56 @@
 page-home {
 
+.grid-full ion-row {
+  height: 100%;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.grid-full ion-col{
+  flex: 0 0 50%;
+  max-width: 50%;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+
+
+.cell-1 {
+  background-color: color($colors,danger);
+  opacity: 1;
+  color: white;
+  font-size: 15px;
+}
+.cell-2 {
+  background-color: color($colors,greenColor);
+  opacity: 0.8;
+  color: white;
+  font-size: 15px;
+}
+.cell-3 {
+  background-color: color($colors,primary);
+  opacity: 0.8;
+  color: white;
+  font-size: 15px;
+}
+.cell-4 {
+  background-color: color($colors,deepOrange);
+  opacity: 0.8;
+  color: white;
+  font-size: 15px;
+}
+.cell-5 {
+  background-color: color($colors,secondary);
+  opacity: 0.8;
+  color: white;
+  font-size: 15px;
+}
+.cell-6 {
+  background-color: color($colors,limeColor);
+  opacity: 1;
+  color: white;
+  font-size: 15px;
+}
+
+
 }

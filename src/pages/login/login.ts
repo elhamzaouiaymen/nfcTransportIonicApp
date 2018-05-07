@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController,LoadingController, Loading, NavParams } from 'ionic-angular';
+import { IonicPage, NavController,LoadingController, Loading, NavParams, ToastController, Toast, AlertController, Alert } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth'
 import { TabsPage } from '../../pages/tabs/tabs'
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
-import { AlertController, Alert } from 'ionic-angular';
-import { ToastController, Toast } from 'ionic-angular';
+import { RegisterPage} from '../../pages/register/register'
 
 @IonicPage()
 @Component({
@@ -70,6 +69,11 @@ export class LoginPage {
 		 });
 		this.loaderInstance.present()
 		
+	}
+
+	public goToRegister(){
+
+		this.navCtrl.push(RegisterPage);
 	}
 
 

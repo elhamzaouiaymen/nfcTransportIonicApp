@@ -10,12 +10,16 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { AbonnementPage } from '../pages/abonnement/abonnement'
+import { CreateAbonnementPage } from '../pages/create-abonnement/create-abonnement'
 import { MapPage } from '../pages/map/map';
+import { DerniersAbonnementPage } from '../pages/derniers-abonnement/derniers-abonnement'
+import { RegisterPage } from '../pages/register/register'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ImghandlerProvider } from '../providers/imghandler/imghandler';
 import { UserProvider } from '../providers/user/user';
 import { AuthProvider } from '../providers/auth/auth';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+
 
 
 import { AngularFireModule} from 'angularfire2';
@@ -41,6 +45,10 @@ import { AngularFireAuth} from 'angularfire2/auth'
     AbonnementPage,
     MapPage,
     LoginPage,
+    RegisterPage,
+    CreateAbonnementPage,
+    DerniersAbonnementPage,
+
   ],
   imports: [
     NgxErrorsModule,
@@ -56,18 +64,22 @@ import { AngularFireAuth} from 'angularfire2/auth'
     ContactPage,
     HomePage,
     TabsPage,
+    RegisterPage,
     AbonnementPage,
     MapPage,
-    LoginPage
+    LoginPage,
+    CreateAbonnementPage,
+    DerniersAbonnementPage,
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ImghandlerProvider,
     UserProvider,
     AuthProvider,
-    AngularFireAuth
+    AngularFireAuth,
+    AngularFireDatabase,
   ]
 })
 export class AppModule {}

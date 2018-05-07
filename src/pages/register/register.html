@@ -1,0 +1,47 @@
+<ion-content padding class="login main-content">
+    <form (ngSubmit)="register()" [formGroup]="registerForm">
+
+  
+      <ion-list inset class="list-form" style="margin-top:60%">
+      	
+      	<ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }" id="item-username">
+    	    <ion-input [(ngModel)]="user.email" class="custom-input" type="text" placeholder="Email"formControlName="email" ></ion-input>
+      	</ion-item>
+
+        <div ngxErrors="email" #emailErrors="ngxErrors">
+            <div class="errorContainer" [ngxError]="['email', 'required']" [when]="['touched', 'dirty']"><span>Votre email n'est pas valide !</span></div>
+        </div>
+
+
+        <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }" id="item-password">
+          <ion-input [(ngModel)]="user.password" style="color:white;border-bottom-color:white;box-shadow:none;" type="password" placeholder="Password" formControlName="password" ></ion-input>
+        </ion-item>
+
+        <div ngxErrors="password" #passwordErrors="ngxErrors">
+        <div class="errorContainer" [ngxError]="['minlength', 'required']" [when]="['touched']"><span>Le mot de passe doit contenir au minumum 5 caractères</span></div>
+      </div>
+
+
+
+        <ion-item id="item-password">
+          <ion-input  style="color:white;border-bottom-color:white;box-shadow:none;" type="password" placeholder="Repeat Password" formControlName="repeatPassword" ></ion-input>
+        </ion-item>
+
+       
+        <div class="errorContainer" *ngIf="registerForm.controls.repeatPassword.errors?.MatchPassword"><span>Les deux mots de passe ne coincident pas ! </span>
+        </div>
+     
+
+      
+      </ion-list>
+
+      <button [disabled]="!registerForm.valid" type="submit" id="custom-btn-login" ion-button block>Register</button>
+    </form>
+
+    <div text-center id="forgetpwd" (click)="goToLogin()">Already have account !</div>
+    
+
+
+
+</ion-content>
+

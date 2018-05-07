@@ -1,0 +1,75 @@
+page-register {
+
+
+::-webkit-input-placeholder {
+  color: white !important; 
+}
+:-moz-placeholder {
+  color: white !important; 
+}
+:-ms-input-placeholder {
+  /* IE10+ */
+  color: white !important; 
+}
+
+.main-content{
+	background-image:url('../../assets/imgs/signbg.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.custom-input {
+	color:white;
+	border-bottom-color:white;
+	box-shadow:none;
+}
+
+#item-username {
+	padding:0px !important; border-bottom:none !important;
+	border-top:none;font-size: 14px;
+	margin-top:10px;background:none;
+	border-bottom:1px solid white;
+	box-shadow:none;
+}
+
+#item-password{
+	padding:0px !important; 
+	font-size: 14px;
+	margin-top:10px;
+	background:none;
+	border-bottom:1px solid white;
+	box-shadow:none;
+
+}
+
+#custom-btn-login{
+	margin-top: 15px;
+	height: 35px;
+	font-size: 14px;
+	background: #10ABF4;
+}
+
+#custom-btn-register{
+	background-color: transparent;
+	color:white;
+	border-color:white;
+	border:1px solid white;
+	margin-top:20px;
+	height: 35px;
+	font-size: 14px;
+}
+
+
+#forgetpwd {
+	text-decoration: underline;
+	margin-top:20px;
+	color:white;
+	font-size: 14px;
+}
+
+.errorContainer{
+	font-style: normal;
+	font-size: 12px;
+	font-family: sans-serif;
+	color: #f53d3d;
+}
+}

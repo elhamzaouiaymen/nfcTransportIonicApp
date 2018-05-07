@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { File } from '@ionic-native/file';
-import { FileChooser } from '@ionic-native/file-chooser';
-import { FilePath } from '@ionic-native/file-path';
+/*import { FileChooser } from '@ionic-native/file-chooser';
+import { FilePath } from '@ionic-native/file-path';*/
 import firebase from 'firebase';
 
 @Injectable()
 export class ImghandlerProvider {
   nativepath: any;
   firestore = firebase.storage();
-  constructor(public filechooser: FileChooser) {
+  constructor() {
   }
  
-  uploadimage() {
+ /* uploadimage() {
     var promise = new Promise((resolve, reject) => {
         this.filechooser.open().then((url) => {
           (<any>window).FilePath.resolveNativePath(url, (result) => {
@@ -40,5 +40,7 @@ export class ImghandlerProvider {
     })    
      return promise;   
   }
+
+  */
  
 }
