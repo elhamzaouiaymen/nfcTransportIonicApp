@@ -28,11 +28,6 @@ export class ProfilePage {
 			//saveToPhotoAlbum: true
 		}).then(imgData => {
 			this.pictureUrl = imgData;
-			if(this.pictureUrl === undefined){
-				this.debug = "underined1"
-			}else{
-				this.debug = this.pictureUrl
-			}
 			this.upload();
 		})
 	}

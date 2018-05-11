@@ -32,7 +32,7 @@ import { AbonnementDetailsPageModule } from '../pages/abonnement-details/abonnem
     authDomain: "saferapp-6556f.firebaseapp.com",
     databaseURL: "https://saferapp-6556f.firebaseio.com",
     projectId: "saferapp-6556f",
-    storageBucket: "gs://saferapp-6556f.appspot.com",
+    storageBucket: "saferapp-6556f.appspot.com",
     messagingSenderId: "717733219169"
   };
 
