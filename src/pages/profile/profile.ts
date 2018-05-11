@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular'
 import { Camera } from 'ionic-native'; 
-import firebase from 'firebase' 
+import firebase from 'firebase';
 
 
 @Component({
