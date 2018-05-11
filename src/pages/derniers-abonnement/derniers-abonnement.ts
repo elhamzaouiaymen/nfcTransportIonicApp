@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { IAbonnement } from '../../models/IAbonnement'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Modal, ModalController, ModalOptions } from 'ionic-angular';
 
 /**
  * Generated class for the DerniersAbonnementPage page.
@@ -22,9 +23,27 @@ export class DerniersAbonnementPage {
 
   private abonnements: FirebaseListObservable<IAbonnement[]>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private db:AngularFireDatabase ) {
+  constructor(public navCtrl: NavController,private modal: ModalController, public navParams: NavParams, private db:AngularFireDatabase ) {
     this.abonnements = db.list('abonnements');
   }
+
+  private showDetails(abonnement: IAbonnement){
+      const myModalOptions: ModalOptions = {
+        enableBackdropDismiss: false
+      };
+
+      const myModal: Modal = this.modal.create('AbonnementDetailsPage', { data: abonnement }, myModalOptions);
+      myModal.present();
+      myModal.onDidDismiss((data) => {
+        //some code here
+      });
+
+      myModal.onWillDismiss((data) => {
+        // some code when modal will dissmiss
+    });
+  }
+
+
 
 
 

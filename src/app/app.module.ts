@@ -24,6 +24,7 @@ import { CalendarModalPageModule } from '../pages/calendar-modal/calendar-modal.
 
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuth} from 'angularfire2/auth'
+import { AbonnementDetailsPageModule } from '../pages/abonnement-details/abonnement-details.module';
 
 
   var FirebaseConfig = {
@@ -48,13 +49,15 @@ import { AngularFireAuth} from 'angularfire2/auth'
     RegisterPage,
     CreateAbonnementPage,
     DerniersAbonnementPage,
+  
 
   ],
   imports: [
     NgxErrorsModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FirebaseConfig),   
+    AngularFireModule.initializeApp(FirebaseConfig),  
+    AbonnementDetailsPageModule 
     
   ],
   bootstrap: [IonicApp],

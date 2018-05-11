@@ -37,22 +37,15 @@
     
     <ion-item>
       <ion-label color="primary" floating>Date debut</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="abonnement.startDate"></ion-datetime>
+      <ion-datetime  displayFormat="MM/DD/YYYY" [(ngModel)]="abonnement.startDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label color="primary" floating>Date fin</ion-label>
       <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="abonnement.endDate"></ion-datetime>
     </ion-item>
-   
 
-    <!--<div style="text-align: center; font-size: 20px;">
-      <ion-img src="../../assets/imgs/cash.svg" height="45" width="45"></ion-img>
-      <h2>{{abonnement.prix}} TTC</h2>
-    </div>-->
-
-
-  	<button (click)="addAbonnement(abonnement)" block ion-button color="secondary">Valider</button>
+  	<button style="margin-top: 20px;" (click)="addAbonnement(abonnement)" block ion-button color="secondary"></button>
 
     
 </ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Details abonnement</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="closeModal()">Close</button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+
+      <ion-list>
+        
+          <ion-item>
+              <ion-img style="background-color: transparent" src="../../assets/imgs/depart.svg"></ion-img>
+           Départ :  <span>{{abonnement.depart}}</span>
+          </ion-item>
+        
+          <ion-item>
+            <ion-img style="background-color: transparent" src="../../assets/imgs/destination.svg"></ion-img>
+            Destination : <span>{{abonnement.destination}}</span>
+          </ion-item>
+        
+          <ion-item>
+              <ion-img style="background-color: transparent" src="../../assets/imgs/classe.svg"></ion-img>
+            Classe : <span>{{abonnement.classe}}</span> 
+          </ion-item>
+          <ion-item>
+            <ion-img style="background-color: transparent" src="../../assets/imgs/cash.svg"></ion-img>
+             Prix : <span>{{abonnement.prix}} Dinars</span> 
+          </ion-item>
+
+          <ion-item>
+              <ion-img style="background-color: transparent" src="../../assets/imgs/time.svg"></ion-img>
+             Date de création : <span>{{abonnement.startDate}}</span> 
+          </ion-item>
+          <ion-item>
+              <ion-img style="background-color: transparent" src="../../assets/imgs/time.svg"></ion-img>
+             Date d'expiration : <span>{{abonnement.endDate}}</span> 
+          </ion-item>
+          <ion-item>
+              <ion-img style="background-color: transparent" src="../../assets/imgs/time.svg"></ion-img>
+             Durée : <span>{{abonnement.duree}}</span> 
+          </ion-item>
+        
+              
+                
+         
+        
+        </ion-list>
+
+  </ion-content>
