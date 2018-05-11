@@ -1,19 +1,37 @@
-import { Component, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { ImghandlerProvider } from '../../providers/imghandler/imghandler';
-import { UserProvider } from '../../providers/user/user';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular'
+import { Camera } from 'ionic-native'; 
+import firebase from 'firebase' 
+
 
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-	imgurl = 'nfcproject-34216.appspot.com';
-  	moveon = true;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public imgservice: ImghandlerProvider,
-	  public zone: NgZone, public userservice: UserProvider, public loadingCtrl: LoadingController) {
+	pictureData: any;
+	pictureUrl: any;
+	mypicRef: any;
+
+	constructor(public nav: NavController) {
+		this.mypicRef =  firebase.storage().ref('/')
 	}
+
+
+	takePicture(){
+		Camera.getPicture({
+			quality: 100,
+			destinationType: Camera.DestinationType.DATA_URL,
+			sourceType: Camera.PictureSourceType.CAMERA,
+			encodingType: Camera.EncodingType.PNG,
+			saveToPhotoAlbum: true
+		}).then(imgData => {
+			this.pictureUrl = imgData;
+		})
+	}
+
+
   
 
 
