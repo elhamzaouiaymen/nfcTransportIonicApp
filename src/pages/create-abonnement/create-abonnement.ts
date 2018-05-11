@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { IAbonnement } from '../../models/IAbonnement'
+import { Modal, ModalController, ModalOptions } from 'ionic-angular';
 
 /**
  * Generated class for the CreateAbonnementPage page.
@@ -16,6 +17,7 @@ import { IAbonnement } from '../../models/IAbonnement'
   templateUrl: 'create-abonnement.html',
 })
 export class CreateAbonnementPage {
+
 	countClasseChanges = 0;
 	countDureeChanges =0;
 	abonnement: IAbonnement = {
@@ -29,7 +31,7 @@ export class CreateAbonnementPage {
 	};
 
 	constructor(	public navCtrl: NavController, 
-	  				public navParams: NavParams,
+	  				public navParams: NavParams, private modal: ModalController,
 	  				private db: AngularFireDatabase) {
 	  	this.abonnement.dateCreation = new Date();
       console.log(this.abonnement.dateCreation.getYear());
@@ -78,7 +80,13 @@ export class CreateAbonnementPage {
   		
   		
   		
-  	}
+		}
+		
+
+		private onDaySelect(e: any){
+			console.log(e)
+
+		}
 
   	private onClasseChanged(selected, selectedDuree){
 
@@ -105,6 +113,32 @@ export class CreateAbonnementPage {
 
   		}
   		
-  	}
+		}
+		
+		openModal() {
+
+			const myModalOptions: ModalOptions = {
+				enableBackdropDismiss: false
+			};
+	
+			const myModalData = {
+				picked: ''
+			};
+	
+			const myModal: Modal = this.modal.create('CalendarModalPage', { data: myModalData }, myModalOptions);
+	
+			myModal.present();
+	
+			myModal.onDidDismiss((data) => {
+				console.log("I have dismissed.");
+				console.log(data);
+			});
+	
+			myModal.onWillDismiss((data) => {
+				console.log("I'm about to dismiss");
+				console.log(data);
+			});
+	
+		}
 
 }

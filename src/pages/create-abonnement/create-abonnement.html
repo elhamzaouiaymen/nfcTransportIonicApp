@@ -33,24 +33,26 @@
 			<ion-option>Business</ion-option>
 			<ion-option>Familiale</ion-option>
 		</ion-select>
-  	</ion-item>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label color="primary" floating>Date debut</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="abonnement.startDate"></ion-datetime>
+    </ion-item>
 
     <ion-item>
-    <ion-label color="primary" floating>Durée</ion-label>
-    <ion-select #duree [(ngModel)]="abonnement.duree" (ionChange)="onDureeChanged(duree.value, classe);">
-      <ion-option>1 Mois</ion-option>
-      <ion-option>6 Mois</ion-option>
-      <ion-option>1 an</ion-option>
-    </ion-select>
+      <ion-label color="primary" floating>Date fin</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="abonnement.endDate"></ion-datetime>
     </ion-item>
-  	<br>
+   
 
-    <div style="text-align: center; font-size: 20px;">
+    <!--<div style="text-align: center; font-size: 20px;">
       <ion-img src="../../assets/imgs/cash.svg" height="45" width="45"></ion-img>
       <h2>{{abonnement.prix}} TTC</h2>
-    </div>
+    </div>-->
 
 
   	<button (click)="addAbonnement(abonnement)" block ion-button color="secondary">Valider</button>
 
+    
 </ion-content>

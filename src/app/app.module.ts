@@ -19,20 +19,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
 import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
-
+import { CalendarModalPageModule } from '../pages/calendar-modal/calendar-modal.module'
 
 
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuth} from 'angularfire2/auth'
 
 
- var FirebaseConfig = {
-    apiKey: "AIzaSyDpA1u4kHdQRXlMmcQ30QYYh37Pt1J5nQc",
-    authDomain: "nfcproject-34216.firebaseapp.com",
-    databaseURL: "https://nfcproject-34216.firebaseio.com",
-    projectId: "nfcproject-34216",
-    storageBucket: "nfcproject-34216.appspot.com",
-    messagingSenderId: "221594989971"
+  var FirebaseConfig = {
+    apiKey: "AIzaSyAEyuf38IXsCh5i-AYiLq8Yg2yMJ5zcA2Q",
+    authDomain: "saferapp-6556f.firebaseapp.com",
+    databaseURL: "https://saferapp-6556f.firebaseio.com",
+    projectId: "saferapp-6556f",
+    storageBucket: "",
+    messagingSenderId: "717733219169"
   };
 
 @NgModule({
