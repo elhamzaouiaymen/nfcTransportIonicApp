@@ -11,7 +11,7 @@ import firebase from 'firebase';
 export class ProfilePage {
 
 	pictureData: any;
-	pictureUrl: any;
+	pictureUrl: any = "";
 	mypicRef: any;
 
 	constructor(public nav: NavController) {
@@ -28,6 +28,7 @@ export class ProfilePage {
 			saveToPhotoAlbum: true
 		}).then(imgData => {
 			this.pictureUrl = imgData;
+			
 			this.upload();
 		})
 	}
