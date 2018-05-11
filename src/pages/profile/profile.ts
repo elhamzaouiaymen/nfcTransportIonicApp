@@ -31,7 +31,7 @@ export class ProfilePage {
 			if(this.pictureUrl === undefined){
 				this.debug = "underined1"
 			}else{
-				this.debug = "aymen"
+				this.debug = this.pictureUrl
 			}
 			this.upload();
 		})
