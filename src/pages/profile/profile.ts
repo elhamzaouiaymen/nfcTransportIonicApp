@@ -9,9 +9,9 @@ import firebase from 'firebase';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-
+	debug : string = "undefined";
 	pictureData: any;
-	pictureUrl: any = "";
+	pictureUrl: any;
 	mypicRef: any;
 
 	constructor(public nav: NavController) {
@@ -24,11 +24,13 @@ export class ProfilePage {
 			quality: 100,
 			destinationType: Camera.DestinationType.DATA_URL,
 			sourceType: Camera.PictureSourceType.CAMERA,
-			encodingType: Camera.EncodingType.PNG,
-			saveToPhotoAlbum: true
+			encodingType: Camera.EncodingType.PNG
+			//saveToPhotoAlbum: true
 		}).then(imgData => {
 			this.pictureUrl = imgData;
-			
+			if(this.pictureUrl === undefined){
+				this.debug = "underined1"
+			}
 			this.upload();
 		})
 	}
