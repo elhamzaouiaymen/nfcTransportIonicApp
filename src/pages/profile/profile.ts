@@ -15,7 +15,7 @@ export class ProfilePage {
 	mypicRef: any;
 
 	constructor(public nav: NavController) {
-		this.mypicRef =  firebase.storage().ref('/')
+		this.mypicRef =  firebase.storage().ref('/photos/');
 	}
 
 
