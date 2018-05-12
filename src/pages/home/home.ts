@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {AbonnementPage} from './../abonnement/abonnement'
+import { NfcPage } from '../nfc/nfc';
 
 @Component({
   selector: 'page-home',
@@ -14,6 +15,10 @@ export class HomePage {
 
   goToAbonnement() {
   	this.navCtrl.push(AbonnementPage);  
+  }
+
+  goToNFC(){
+    this.navCtrl.push(NfcPage);
   }
 
 }
