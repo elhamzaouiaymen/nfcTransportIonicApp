@@ -26,6 +26,7 @@ import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuth} from 'angularfire2/auth'
 import { AbonnementDetailsPageModule } from '../pages/abonnement-details/abonnement-details.module';
 import { UserDataProvider } from '../providers/user-data/user-data';
+import { NfcPage } from '../pages/nfc/nfc';
 
 
   var FirebaseConfig = {
@@ -50,6 +51,7 @@ import { UserDataProvider } from '../providers/user-data/user-data';
     RegisterPage,
     CreateAbonnementPage,
     DerniersAbonnementPage,
+    NfcPage
   
 
   ],
@@ -74,6 +76,7 @@ import { UserDataProvider } from '../providers/user-data/user-data';
     LoginPage,
     CreateAbonnementPage,
     DerniersAbonnementPage,
+    NfcPage
     
   ],
   providers: [
