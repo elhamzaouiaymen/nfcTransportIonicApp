@@ -37,6 +37,8 @@ export class FeedbackPage {
           isHtml: false,
           app : 'Gmail'
         };
+
+        this.emailComposer.addAlias('gmail', 'com.google.android.gm');
       
         
         // Send a text message using default options
