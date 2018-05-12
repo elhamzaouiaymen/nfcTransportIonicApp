@@ -89,4 +89,5 @@
     <allow-navigation href="http://192.168.1.6:8100" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="phonegap-nfc" spec="^0.7.3" />
+    <plugin name="cordova-plugin-email-composer" spec="^0.8.15" />
 </widget>

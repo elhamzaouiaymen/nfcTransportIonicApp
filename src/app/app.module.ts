@@ -28,6 +28,9 @@ import { AbonnementDetailsPageModule } from '../pages/abonnement-details/abonnem
 import { UserDataProvider } from '../providers/user-data/user-data';
 import { NfcPage } from '../pages/nfc/nfc';
 import { NFC, Ndef } from '@ionic-native/nfc';
+import { FeedbackPage } from '../pages/feedback/feedback';
+import { EmailComposer } from '@ionic-native/email-composer';
+
 
 
   var FirebaseConfig = {
@@ -52,7 +55,8 @@ import { NFC, Ndef } from '@ionic-native/nfc';
     RegisterPage,
     CreateAbonnementPage,
     DerniersAbonnementPage,
-    NfcPage
+    NfcPage,
+    FeedbackPage
   
 
   ],
@@ -77,7 +81,8 @@ import { NFC, Ndef } from '@ionic-native/nfc';
     LoginPage,
     CreateAbonnementPage,
     DerniersAbonnementPage,
-    NfcPage
+    NfcPage,
+    FeedbackPage
     
   ],
   providers: [
@@ -90,7 +95,8 @@ import { NFC, Ndef } from '@ionic-native/nfc';
     AngularFireDatabase,
     UserDataProvider,
     NFC,
-    Ndef
+    Ndef,
+    EmailComposer
   ]
 })
 export class AppModule {}
