@@ -34,8 +34,10 @@ export class FeedbackPage {
           cc: 'erika@mustermann.de',
           subject: 'Reclamation',
           body: this.feedback,
-          isHtml: true
+          isHtml: false,
+          app : 'Gmail'
         };
+      
         
         // Send a text message using default options
         this.emailComposer.open(email);
