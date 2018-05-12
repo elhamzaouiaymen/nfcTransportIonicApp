@@ -66,6 +66,6 @@ export class NfcPage {
 
   writeTag(writeText: string) {
     this.writingTag = true;
-    this.ndefMsg = this.ndef.textRecord(writeText);
+    this.ndefMsg = this.ndef.encodeMessage(writeText);
   }
 }
