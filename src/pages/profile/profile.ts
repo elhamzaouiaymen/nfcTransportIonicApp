@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular'
 import { Camera } from 'ionic-native'; 
 import { UserDataProvider } from '../../providers/user-data/user-data';
@@ -9,14 +9,19 @@ import { UserDataProvider } from '../../providers/user-data/user-data';
   selector: 'page-profile',
   templateUrl: 'profile.html'
 })
-export class ProfilePage {
+export class ProfilePage implements OnInit {
 	debug : string = "undefined";
 	pictureData: any;
 	pictureUrl: any;
 	mypicRef: any;
+	username : string;
 
 	constructor(private userData:UserDataProvider ,public nav: NavController) {
 
+	}
+
+	ngOnInit(){
+		this.username = this.userData.getCurrentUserEmail();
 	}
 
 
@@ -32,7 +37,7 @@ export class ProfilePage {
 			saveToPhotoAlbum: true,
 			correctOrientation: true
 		}).then(imgData => {
-			this.userData.uploadPicture(imgData).then(profileURL => {
+			this.userData.uploadPicture(this.userData.getCurrentUserID(),imgData).then(profileURL => {
 				this.pictureUrl = profileURL;
 				return this.pictureUrl;
 			  });

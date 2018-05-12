@@ -57,7 +57,6 @@ export class RegisterPage {
 
 
 	private register(){
-
 		this.fireauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
 		.then((res)=>{
 			this.presentToastWithMessage('Vous êtes inscrit avec succès. Vous pouvez se connecter !')
