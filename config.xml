@@ -88,4 +88,5 @@
     <engine name="android" spec="~7.0.0" />
     <allow-navigation href="http://192.168.1.6:8100" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="phonegap-nfc" spec="^0.7.3" />
 </widget>

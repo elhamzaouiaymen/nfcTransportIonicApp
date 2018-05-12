@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { AngularFireModule, FirebaseApp } from "angularfire2";
 import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import firebase from 'firebase'
 import { Guid } from '../../utils/Guid';
 /*
@@ -12,18 +13,21 @@ import { Guid } from '../../utils/Guid';
 @Injectable()
 export class UserDataProvider {
 
-  constructor(private auth: AngularFireAuth,private af: AngularFireModule, @Inject(FirebaseApp) private firebaseApp: any) {
+  constructor(private afdb: AngularFireDatabase,private auth: AngularFireAuth,private af: AngularFireModule, @Inject(FirebaseApp) private firebaseApp: any) {
     
   }
 
-  public getCurrentUserEmail(){
+  public getCurrentUserEmail():string{
     return firebase.auth().currentUser.email
   }
 
-  getCurrentUserID(){
+  public getCurrentUserID():string{
     return firebase.auth().currentUser.uid;
   }
 
+  public fetchUser(uid: string) {
+    return this.afdb.object(`/userProfile/${uid}`);
+  }
 
   public uploadPicture(userId: string, profilePicture: any): Promise<string> {
     const profilePictureRef: firebase.storage.Reference = this.firebaseApp.storage().ref('/');
@@ -35,6 +39,11 @@ export class UserDataProvider {
         profilePicture = pictureSnapshot;
         return pictureSnapshot.downloadURL;
       });
+  }
+
+
+  public logout(){
+    this.auth.auth.signOut();
   }
 
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular'
+import { NavController, NavParams } from 'ionic-angular'
 import { Camera } from 'ionic-native'; 
 import { UserDataProvider } from '../../providers/user-data/user-data';
-
+import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -10,19 +10,37 @@ import { UserDataProvider } from '../../providers/user-data/user-data';
   templateUrl: 'profile.html'
 })
 export class ProfilePage implements OnInit {
-	debug : string = "undefined";
+	public profileId: string = this.navParams.get("userId");
 	pictureData: any;
 	pictureUrl: any;
 	mypicRef: any;
 	username : string;
+	email : string;
 
-	constructor(private userData:UserDataProvider ,public nav: NavController) {
-
-	}
+	constructor(private userData:UserDataProvider, private navParams :NavParams ,public nav: NavController) {
+		this.userData.fetchUser(userData.getCurrentUserID()).subscribe(user => {
+	
+			this.setProfilePictureURL(user);
+	})
+}
 
 	ngOnInit(){
-		this.username = this.userData.getCurrentUserEmail();
+		this.email = this.userData.getCurrentUserEmail();
+		this.username = this.userData.getCurrentUserEmail().split('@')[0];
 	}
+
+	public logout(){
+		this.userData.logout();
+		this.nav.setRoot('LoginPage');
+	}
+
+	public setProfilePictureURL(user:any): void {
+		if (!user) {
+		  this.pictureUrl = "assets/images/user.png";
+		} else {
+		  this.pictureUrl = user.profilePicture;
+		}
+	  }
 
 
 	takePicture(){

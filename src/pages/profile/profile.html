@@ -1,20 +1,50 @@
 <ion-header>
   <ion-navbar>
+      <button (click)="logout()" ion-button icon-only style="background-color: transparent; color: black">
+          <ion-icon name="log-out"></ion-icon>
+        </button>
     <ion-title>
-      About
+      Mon Profile
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-<ion-card>
+<ion-content no-padding>
+<ion-card style="background-color: #488aff; opacity: 0.8;">
   <ion-card-header class="bg-image">
-    <ion-img src="{{pictureUrl}}" class="round-image" id="profile-img" (click)="takePicture()"></ion-img>
-
-    <span>{{username}}</span>
-  </ion-card-header>
-
+    <ion-img src="{{pictureUrl}}" class="round-image" id="profile-img"></ion-img>
+ 
+    <ion-item style="background-color: transparent">
+        <button ion-button item-start (click)="takePicture()">
+            <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+          Camera
+        </button>
   
+        <button ion-button item-end >
+          <ion-icon name="image"></ion-icon>
+          Gallery
+        </button>
+      </ion-item>
+  </ion-card-header>
 </ion-card>
+
+<ion-list>
+
+    <ion-list-header>
+      Informations du profile
+    </ion-list-header>
+  
+    <ion-item>
+      <p style="font-size: 13px">USERNAME : {{username}}</p>
+    </ion-item>
+
+    <ion-item>
+      <p style="font-size: 13px;">EMAIL : {{email}}</p>  
+    </ion-item>
+
+   
+ 
+  
+  </ion-list>
 
 </ion-content>
