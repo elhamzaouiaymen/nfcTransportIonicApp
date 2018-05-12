@@ -37,7 +37,8 @@ export class ProfilePage {
 		.putString(this.pictureData,'base64')
 		.then(savepic => {
 			this.pictureUrl = savepic.downloadURL
-		})
+			return savepic.downloadURL;
+		});
 	}
 
 	private generateUUID(){
