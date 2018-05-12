@@ -5,6 +5,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NFC, Ndef } from '@ionic-native/nfc';
 
 import { Subscription } from 'rxjs/Rx'
+import { utf8Encode } from '@angular/compiler/src/util';
 
 @IonicPage()
 @Component({
@@ -66,6 +67,7 @@ export class NfcPage {
 
   writeTag(writeText: string) {
     this.writingTag = true;
-    this.ndefMsg = this.ndef.encodeMessage(writeText);
+    this.ndefMsg = this.ndef.textRecord(writeText,null,null).toString();
   }
+
 }

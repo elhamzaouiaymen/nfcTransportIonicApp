@@ -9,8 +9,8 @@
         </div>
       </ion-col>
 
-      <ion-col class="cell-2">
-        <span>OFFRES</span>
+      <ion-col class="cell-2" (click)="goToTicketList()">
+        <span>MES TICKETS</span>
         <div style="height: 100%; width: 100%; margin-top: 18px">
         <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/discount.svg"></ion-img>
         </div>
@@ -23,14 +23,14 @@
         </div>
       </ion-col>
 
-      <ion-col class="cell-4">
+      <ion-col class="cell-4" (click)="goToTicket()">
         TICKET
         <div style="height: 100%; width: 100%; margin-top: 18px">
         <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/tickets.svg"></ion-img>
         </div>
       </ion-col>
 
-      <ion-col class="cell-5">
+      <ion-col class="cell-5" (click)="goToTrajet();">
         <span>TRAJETS</span>
         <div style="height: 100%; width: 100%; margin-top: 18px">
         <ion-img height="100" width="100" style="background: transparent; text-align: center;" src="../../assets/imgs/trajet.svg"></ion-img>

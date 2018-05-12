@@ -31,6 +31,9 @@ import { NFC, Ndef } from '@ionic-native/nfc';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { EmailComposer } from '@ionic-native/email-composer';
 
+import {TicketPage} from '../pages/ticket/ticket'
+import { TicketlistPage } from '../pages/ticketlist/ticketlist';
+
 
 
   var FirebaseConfig = {
@@ -56,7 +59,9 @@ import { EmailComposer } from '@ionic-native/email-composer';
     CreateAbonnementPage,
     DerniersAbonnementPage,
     NfcPage,
-    FeedbackPage
+    FeedbackPage,
+    TicketPage,
+    TicketlistPage
   
 
   ],
@@ -82,7 +87,9 @@ import { EmailComposer } from '@ionic-native/email-composer';
     CreateAbonnementPage,
     DerniersAbonnementPage,
     NfcPage,
-    FeedbackPage
+    FeedbackPage,
+    TicketPage,
+    TicketlistPage
     
   ],
   providers: [
