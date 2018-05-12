@@ -25,6 +25,7 @@ import { CalendarModalPageModule } from '../pages/calendar-modal/calendar-modal.
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuth} from 'angularfire2/auth'
 import { AbonnementDetailsPageModule } from '../pages/abonnement-details/abonnement-details.module';
+import { UserDataProvider } from '../providers/user-data/user-data';
 
 
   var FirebaseConfig = {
@@ -83,6 +84,7 @@ import { AbonnementDetailsPageModule } from '../pages/abonnement-details/abonnem
     AuthProvider,
     AngularFireAuth,
     AngularFireDatabase,
+    UserDataProvider,
   ]
 })
 export class AppModule {}

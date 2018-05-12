@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular'
 import { Camera } from 'ionic-native'; 
-import firebase from 'firebase';
+import { UserDataProvider } from '../../providers/user-data/user-data';
+
 
 
 @Component({
@@ -14,41 +15,31 @@ export class ProfilePage {
 	pictureUrl: any;
 	mypicRef: any;
 
-	constructor(public nav: NavController) {
-		this.mypicRef =  firebase.storage().ref('/');
+	constructor(private userData:UserDataProvider ,public nav: NavController) {
+
 	}
 
 
 	takePicture(){
 		Camera.getPicture({
-			quality: 100,
+			quality: 95,
 			destinationType: Camera.DestinationType.DATA_URL,
 			sourceType: Camera.PictureSourceType.CAMERA,
-			encodingType: Camera.EncodingType.PNG
-			//saveToPhotoAlbum: true
+			allowEdit: false,
+			encodingType: Camera.EncodingType.JPEG,
+			targetWidth: 300,
+			targetHeight: 250,
+			saveToPhotoAlbum: true,
+			correctOrientation: true
 		}).then(imgData => {
-			this.pictureUrl = imgData;
-			this.upload();
-		})
-	}
-
-	upload(){
-		this.mypicRef.child(this.generateUUID()).child('pic.png')
-		.putString(this.pictureData,'base64')
-		.then(savepic => {
-			this.pictureUrl = savepic.downloadURL
-			return savepic.downloadURL;
-		});
-	}
-
-	private generateUUID(){
-		var d = new Date().getTime();
-		var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
-			var r = (d + Math.random() * 16) % 16 | 0;
-			d = Math.floor(d / 16);
-			return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-		});
-    	return uuid;
+			this.userData.uploadPicture(imgData).then(profileURL => {
+				this.pictureUrl = profileURL;
+				return this.pictureUrl;
+			  });
+			  // tslint:disable-next-line:whitespace
+			}).catch(err => {
+				console.log(err)
+			})
 	}
 
 
