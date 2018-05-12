@@ -41,7 +41,6 @@ export class ProfilePage implements OnInit {
 				this.pictureUrl = profileURL;
 				return this.pictureUrl;
 			  });
-			  // tslint:disable-next-line:whitespace
 			}).catch(err => {
 				console.log(err)
 			})

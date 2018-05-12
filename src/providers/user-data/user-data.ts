@@ -31,6 +31,7 @@ export class UserDataProvider {
       .putString(profilePicture, "base64", { contentType: "image/png"})
       .then((pictureSnapshot: any) => {
         const userProfilePictureRef: firebase.database.Reference = this.firebaseApp.database().ref(`/userProfile/${userId}/profilePicture`);
+        userProfilePictureRef.set(pictureSnapshot.downloadURL);
         profilePicture = pictureSnapshot;
         return pictureSnapshot.downloadURL;
       });
