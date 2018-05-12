@@ -27,6 +27,7 @@ import { AngularFireAuth} from 'angularfire2/auth'
 import { AbonnementDetailsPageModule } from '../pages/abonnement-details/abonnement-details.module';
 import { UserDataProvider } from '../providers/user-data/user-data';
 import { NfcPage } from '../pages/nfc/nfc';
+import { NFC, Ndef } from '@ionic-native/nfc';
 
 
   var FirebaseConfig = {
@@ -88,6 +89,8 @@ import { NfcPage } from '../pages/nfc/nfc';
     AngularFireAuth,
     AngularFireDatabase,
     UserDataProvider,
+    NFC,
+    Ndef
   ]
 })
 export class AppModule {}
