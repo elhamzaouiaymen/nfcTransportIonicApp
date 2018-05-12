@@ -34,7 +34,7 @@ export class ProfilePage {
 
 	upload(){
 		this.mypicRef.child(this.generateUUID()).child('pic.png')
-		.putString(this.pictureData,'base64', {contentType : 'image/png'})
+		.putString(this.pictureData,'base64')
 		.then(savepic => {
 			this.pictureUrl = savepic.downloadURL
 		})
