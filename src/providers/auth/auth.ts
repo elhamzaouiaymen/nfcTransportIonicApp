@@ -25,6 +25,18 @@ export class AuthProvider {
 		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email,
 			 credentials.password);
 	}
+	public isLoggedIn(): boolean{
+		let isLoggedIn: boolean;
+		firebase.auth().onAuthStateChanged((user)=>{
+			if (user) {
+				isLoggedIn = true
+			}else{
+				isLoggedIn = false
+			}
+		})
+
+		return isLoggedIn
+	}
 
 
 

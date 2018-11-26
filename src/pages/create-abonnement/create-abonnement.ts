@@ -6,14 +6,6 @@ import { Modal, ModalController, ModalOptions } from 'ionic-angular';
 import { Guid } from '../../utils/Guid';
 import { DateUtils } from '../../utils/DateUtils'
 
-
-/**
- * Generated class for the CreateAbonnementPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-create-abonnement',
@@ -31,8 +23,8 @@ export class CreateAbonnementPage implements OnInit {
 		classe: '',
 		duree: '',
 		prix: 0,
-    startDate: '',
-    endDate: ''
+    	startDate: '',
+    	endDate: ''
 	};
 
 	constructor(	public navCtrl: NavController, 
@@ -54,10 +46,7 @@ export class CreateAbonnementPage implements OnInit {
 		ngOnInit(){
 
 		}
-			//
-		
 
-		
 
 		private onStartDateChanged(startEvent, endEvent){
 		//	this.abonnement.prix += 0.5 * DateUtils.getPeriodBetween(startEvent, endEvent);

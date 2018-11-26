@@ -17,13 +17,14 @@
 
    <!-- GOOGLE MAPS API -->
 
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS1845NkGECiIAZAPm0cosMr2oemMPaT4"
-    async defer>
+  
 </script>
 
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
-
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+ <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
 
 
   <!-- un-comment this code to enable service worker
@@ -36,6 +37,7 @@
   </script>-->
 
   <link href="build/main.css" rel="stylesheet">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 
 </head>
 <body>

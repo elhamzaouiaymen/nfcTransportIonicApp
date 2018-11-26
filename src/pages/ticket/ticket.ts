@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController , NavParams, LoadingController } from 'ionic-angular';
 import { IAbonnement } from '../../models/IAbonnement';
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 
-/**
- * Generated class for the TicketPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -29,7 +23,11 @@ export class TicketPage {
   };
   private abonnementListRef = this.db.list('tickets');
   
-  constructor(private db: AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private db: AngularFireDatabase,
+              public navCtrl: NavController, 
+              public navParams: NavParams,
+              public loadingCtrl: LoadingController,
+              private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -38,12 +36,30 @@ export class TicketPage {
 
 
   addTicket(ticket: IAbonnement){
-      var currentdate = new Date().toISOString();
-      ticket.startDate = currentdate;
-      console.log(currentdate)
-  		this.abonnementListRef.push(ticket).then((ref)=>{
-  			console.log(ref);
-			});
+    let loading = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+
+    loading.present();
+    var currentdate = new Date().toISOString();
+    ticket.startDate = currentdate;
+  	this.abonnementListRef.push(ticket).then((ref)=>{
+  		if (ref) {
+         let alert = this.alertCtrl.create({
+          title: 'Fait !',
+          buttons: [{
+        text: 'Retour',
+        handler: () => {
+          this.navCtrl.popToRoot();
+        }
+      }]
+        });
+
+      loading.dismiss();
+      alert.present();
+
+      }
+		});
 		
   }
 

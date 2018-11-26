@@ -33,7 +33,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
 
 import {TicketPage} from '../pages/ticket/ticket'
 import { TicketlistPage } from '../pages/ticketlist/ticketlist';
-
+import { MapProvider } from '../providers/map/map';
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
 
   var FirebaseConfig = {
@@ -70,7 +71,10 @@ import { TicketlistPage } from '../pages/ticketlist/ticketlist';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FirebaseConfig),  
-    AbonnementDetailsPageModule 
+    AbonnementDetailsPageModule,
+    NgxMapboxGLModule.withConfig({
+      accessToken: 'pk.eyJ1IjoiZWxoYW16YW91aWF5bWVuIiwiYSI6ImNqb3NrN25ydjBhMTIzcHM1d3AxZncxcTgifQ.FSMth9z4WzrcJIeq-sWBJA', // Optionnal, can also be set per map (accessToken input of mgl-map)
+    })
     
   ],
   bootstrap: [IonicApp],
@@ -103,7 +107,8 @@ import { TicketlistPage } from '../pages/ticketlist/ticketlist';
     UserDataProvider,
     NFC,
     Ndef,
-    EmailComposer
+    EmailComposer,
+    MapProvider
   ]
 })
 export class AppModule {}
