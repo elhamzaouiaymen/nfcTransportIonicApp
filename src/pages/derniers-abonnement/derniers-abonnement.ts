@@ -1,30 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FirebaseListObservable } from 'angularfire2/database-deprecated';
-import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireList } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { IAbonnement } from '../../models/IAbonnement'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Modal, ModalController, ModalOptions } from 'ionic-angular';
-
-/**
- * Generated class for the DerniersAbonnementPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
   selector: 'page-derniers-abonnement',
   templateUrl: 'derniers-abonnement.html',
 })
-export class DerniersAbonnementPage {
+export class DerniersAbonnementPage implements OnInit {
 
-  private abonnements: FirebaseListObservable<IAbonnement[]>;
+  private abonnements:Observable<any[]>;
 
-  constructor(public navCtrl: NavController,private modal: ModalController, public navParams: NavParams, private db:AngularFireDatabase ) {
-    this.abonnements = db.list('abonnements');
+  constructor(public navCtrl: NavController,
+              private modal: ModalController, 
+              public navParams: NavParams, 
+              private db:AngularFireDatabase ) {}
+
+  ngOnInit(){
+    this.abonnements = this.db.list('abonnements').valueChanges();
   }
 
   private showDetails(abonnement: IAbonnement){
@@ -42,6 +40,8 @@ export class DerniersAbonnementPage {
         // some code when modal will dissmiss
     });
   }
+
+
 
 
 

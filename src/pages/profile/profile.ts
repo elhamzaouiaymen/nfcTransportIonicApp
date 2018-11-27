@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular'
 import { Camera } from 'ionic-native'; 
 import { UserDataProvider } from '../../providers/user-data/user-data';
-import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -18,10 +17,8 @@ export class ProfilePage implements OnInit {
 	email : string;
 
 	constructor(private userData:UserDataProvider, private navParams :NavParams ,public nav: NavController) {
-		this.userData.fetchUser(userData.getCurrentUserID()).subscribe(user => {
-	
-			this.setProfilePictureURL(user);
-	})
+		let user = this.userData.fetchUser(userData.getCurrentUserID())
+		this.setProfilePictureURL(user);
 }
 
 	ngOnInit(){

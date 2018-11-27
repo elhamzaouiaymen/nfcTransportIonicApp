@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController , NavParams, LoadingController } from 'ionic-angular';
 import { IAbonnement } from '../../models/IAbonnement';
-import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 @IonicPage()

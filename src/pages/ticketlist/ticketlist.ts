@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FirebaseListObservable } from 'angularfire2/database-deprecated';
-import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireList } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { IAbonnement } from '../../models/IAbonnement';
-
+import { Observable } from 'rxjs';
 /**
  * Generated class for the TicketlistPage page.
  *
@@ -16,16 +16,17 @@ import { IAbonnement } from '../../models/IAbonnement';
   selector: 'page-ticketlist',
   templateUrl: 'ticketlist.html',
 })
-export class TicketlistPage {
+export class TicketlistPage implements OnInit {
 
-  private tickets: FirebaseListObservable<IAbonnement[]>;
+  tickets :Observable<any[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private db:AngularFireDatabase) {
-    this.tickets = db.list('tickets');
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TicketlistPage');
+  ngOnInit(){
+  	this.tickets = this.db.list('tickets').valueChanges();
   }
+
 
 }

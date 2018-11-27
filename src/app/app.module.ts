@@ -18,12 +18,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
 import { AuthProvider } from '../providers/auth/auth';
-import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 import { CalendarModalPageModule } from '../pages/calendar-modal/calendar-modal.module'
 
 
-import { AngularFireModule} from 'angularfire2';
-import { AngularFireAuth} from 'angularfire2/auth'
+import { AngularFireModule} from '@angular/fire';
+import { AngularFireAuth} from '@angular/fire/auth';
 import { AbonnementDetailsPageModule } from '../pages/abonnement-details/abonnement-details.module';
 import { UserDataProvider } from '../providers/user-data/user-data';
 import { NfcPage } from '../pages/nfc/nfc';

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, Loading,ToastCo
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth'
 import { IUser } from '../../models/IUser';
-import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { PasswordValidation } from '../../validators/passwordValidator';
 import { LoginPage } from '../login/login'
 

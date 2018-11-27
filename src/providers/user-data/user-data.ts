@@ -1,19 +1,12 @@
-import { Injectable, Inject } from '@angular/core';
-import { AngularFireModule, FirebaseApp } from "angularfire2";
-import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireDatabase } from '@angular/fire/database';
 import firebase from 'firebase'
-import { Guid } from '../../utils/Guid';
-/*
-  Generated class for the UserDataProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UserDataProvider {
 
-  constructor(private afdb: AngularFireDatabase,private auth: AngularFireAuth,private af: AngularFireModule, @Inject(FirebaseApp) private firebaseApp: any) {
+  constructor(private afdb: AngularFireDatabase,private auth: AngularFireAuth) {
     
   }
 
@@ -30,11 +23,11 @@ export class UserDataProvider {
   }
 
   public uploadPicture(userId: string, profilePicture: any): Promise<string> {
-    const profilePictureRef: firebase.storage.Reference = this.firebaseApp.storage().ref('/');
+    const profilePictureRef: firebase.storage.Reference = firebase.storage().ref('/');
     return profilePictureRef.child(firebase.auth().currentUser.uid).child("profilePicture")
       .putString(profilePicture, "base64", { contentType: "image/png"})
       .then((pictureSnapshot: any) => {
-        const userProfilePictureRef: firebase.database.Reference = this.firebaseApp.database().ref(`/userProfile/${userId}/profilePicture`);
+        const userProfilePictureRef: firebase.database.Reference = firebase.database().ref(`/userProfile/${userId}/profilePicture`);
         userProfilePictureRef.set(pictureSnapshot.downloadURL);
         profilePicture = pictureSnapshot;
         return pictureSnapshot.downloadURL;

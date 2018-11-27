@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { IAbonnement } from '../../models/IAbonnement'
 import { Modal, ModalController, ModalOptions } from 'ionic-angular';
 import { Guid } from '../../utils/Guid';
