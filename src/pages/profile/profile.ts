@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular'
-import { Camera } from 'ionic-native'; 
+import { Camera, CameraOptions } from '@ionic-native/camera'; 
 import { UserDataProvider } from '../../providers/user-data/user-data';
+import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -16,10 +17,10 @@ export class ProfilePage implements OnInit {
 	username : string;
 	email : string;
 
-	constructor(private userData:UserDataProvider, private navParams :NavParams ,public nav: NavController) {
+	constructor(private userData:UserDataProvider, private navParams :NavParams ,public nav: NavController, private camera: Camera) {
 		let user = this.userData.fetchUser(userData.getCurrentUserID())
 		this.setProfilePictureURL(user);
-}
+	}
 
 	ngOnInit(){
 		this.email = this.userData.getCurrentUserEmail();
@@ -28,7 +29,7 @@ export class ProfilePage implements OnInit {
 
 	public logout(){
 		this.userData.logout();
-		this.nav.setRoot('LoginPage');
+		this.nav.popTo(LoginPage);
 	}
 
 	public setProfilePictureURL(user:any): void {
@@ -41,24 +42,26 @@ export class ProfilePage implements OnInit {
 
 
 	takePicture(){
-		Camera.getPicture({
-			quality: 95,
-			destinationType: Camera.DestinationType.DATA_URL,
-			sourceType: Camera.PictureSourceType.CAMERA,
-			allowEdit: false,
-			encodingType: Camera.EncodingType.JPEG,
-			targetWidth: 300,
-			targetHeight: 250,
-			saveToPhotoAlbum: true,
-			correctOrientation: true
-		}).then(imgData => {
-			this.userData.uploadPicture(this.userData.getCurrentUserID(),imgData).then(profileURL => {
+		const options: CameraOptions = {
+		  quality: 100,
+		  destinationType: this.camera.DestinationType.FILE_URI,
+		  encodingType: this.camera.EncodingType.JPEG,
+		  mediaType: this.camera.MediaType.PICTURE
+		}
+
+		this.camera.getPicture(options).then((imageData) => {
+		 // imageData is either a base64 encoded string or a file URI
+		 // If it's base64 (DATA_URL):
+		 //let base64Image = 'data:image/jpeg;base64,' + imageData;
+		 this.userData.uploadPicture(this.userData.getCurrentUserID(),imageData).then(profileURL => {
 				this.pictureUrl = profileURL;
 				return this.pictureUrl;
 			  });
-			}).catch(err => {
-				console.log(err)
-			})
+		}, (err) => {
+		 // Handle error
+		});
+
+
 	}
 
 

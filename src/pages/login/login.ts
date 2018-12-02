@@ -3,7 +3,7 @@ import { IonicPage, NavController,LoadingController, Loading, NavParams, ToastCo
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth'
 import { TabsPage } from '../../pages/tabs/tabs'
-import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { NgxErrorsModule } from '@hackages/ngxerrors';
 import { RegisterPage} from '../../pages/register/register'
 
 @IonicPage()

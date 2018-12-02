@@ -1,9 +1,9 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { NgxErrorsModule } from '@hackages/ngxerrors';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
+import { Camera } from '@ionic-native/camera'; 
 import { ProfilePage } from '../pages/profile/profile';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -19,8 +19,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
 import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
-
-import { CalendarModalPageModule } from '../pages/calendar-modal/calendar-modal.module'
 
 
 import { AngularFireModule} from '@angular/fire';
@@ -109,7 +107,8 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     NFC,
     Ndef,
     EmailComposer,
-    MapProvider
+    MapProvider,
+    Camera
   ]
 })
 export class AppModule {}

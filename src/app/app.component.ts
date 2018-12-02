@@ -11,7 +11,7 @@ import { AuthProvider } from '../providers/auth/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any;
+  rootPage: any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, authProvider: AuthProvider) {
     platform.ready().then(() => {
@@ -21,10 +21,10 @@ export class MyApp {
       splashScreen.hide();
     });
 
-    if (!authProvider.isLoggedIn) {
+    /*if (!authProvider.isLoggedIn) {
       this.rootPage = LoginPage
     }else{
       this.rootPage = TabsPage
-    }
+    }*/
   }
 }

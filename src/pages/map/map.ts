@@ -1,6 +1,7 @@
 import { Component, ViewChild , ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as mapboxgl from 'mapbox-gl';
+import * as mapboxgeocoder from '@mapbox/mapbox-gl-geocoder';
 
 import { MapProvider } from '../../providers/map/map';
 
@@ -36,8 +37,8 @@ export class MapPage {
       zoom: 12,
       center: [this.lng, this.lat]
     });
-
-    this.geocoder = new MapboxGeocoder({
+  
+    this.geocoder = new mapboxgeocoder({
       accessToken: mapboxgl.accessToken,
       zoom: 14,
       placeholder: "Enter search"
